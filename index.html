@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Counter Demo</title>
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
+	<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="clock-container">
+		<div class="counter-container" id="mycount">0:0:0</div>
+		<div class="button-container">
+			<button type="submit" onclick="start()">Start</button>
+			<button type="submit" onclick="stop()" id="stp">Stop</button>
+			<button type="submit" onclick="resume()" id="res">Resume</button>
+			<button type="submit" onclick="clear()" id="clr">Clear</button>
+		</div>
+	</div>
+		<script>
+			var sec = 0;
+			var hr = 0;
+			var min = 0;
+			var myInterval='';
+			function start(){
+				
+				myInterval = setInterval(clock_start,1000);
+			}
+			function clock_start(){
+				// set the onclick listners here 
+				document.getElementById('clr').onclick=()=>{clear();};
+				document.getElementById('stp').onclick=()=>{stop();};
+				document.getElementById('res').onclick=()=>{resume();};
+					sec = sec+1;
+					if(sec>59){
+						sec =  0;
+						min = min+1;
+						if(min>59){
+							min=0;
+							hr = hr+1;
+							if(hr>11)
+							{
+								hr=0;
+							}
+						}	
+					}
+					console.log(hr+':'+min+':'+sec);
+					document.getElementById('mycount').innerHTML = hr+":"+min+":"+sec;
+
+					function clear(){
+						clearInterval(myInterval);
+						console.log('I am here');
+						hr=min=sec=0;
+						document.getElementById('mycount').innerHTML = hr+":"+min+":"+sec;
+					}
+					function stop(){
+						clearInterval(myInterval);
+					}
+
+					function resume(){
+						myInterval = setInterval(clock_start,1000);
+					}
+
+				}
+
+		</script>
+		
+	
+</body>
+</html>

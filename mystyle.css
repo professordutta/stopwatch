@@ -1,0 +1,33 @@
+*{
+	font-family: 'Open Sans';
+}
+
+
+.clock-container{
+	display: flex;
+	text-align: center;
+	align-items: center;
+	flex-direction: column;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	margin-left: 700px;
+	margin-right: 700px;
+}
+
+.clock-container .counter-container{
+	font-size: 3.5em;
+}
+
+
+.clock-container .button-container{
+	padding-bottom: 30px;
+	padding-top: 30px;
+}
+@media screen and (max-width: 1650px){
+
+	.clock-container{
+	display: flex;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+}
